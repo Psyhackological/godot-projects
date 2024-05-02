@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj4uljhbpiapg"]
+[gd_scene load_steps=15 format=3 uid="uid://cj4uljhbpiapg"]
 
 [ext_resource type="PackedScene" uid="uid://56pmtefbka8" path="res://scenes/player.tscn" id="1_5huw3"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_x02dh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://casg7564rkshg" path="res://scenes/coin.tscn" id="5_r3cr2"]
 [ext_resource type="PackedScene" uid="uid://dluoaexpxr2gi" path="res://scenes/killzone.tscn" id="6_grx5l"]
 [ext_resource type="PackedScene" uid="uid://cdwccml7vr0ri" path="res://scenes/slime.tscn" id="7_txlmu"]
+[ext_resource type="FontFile" uid="uid://cqcpfpjpn81yk" path="res://assets/fonts/PixelOperator8.ttf" id="8_mub35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_duy8d"]
 texture = ExtResource("3_dim12")
@@ -504,7 +505,7 @@ position = Vector2(704, -58)
 position = Vector2(722, -61)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("5_r3cr2")]
-position = Vector2(521, -141)
+position = Vector2(522, -139)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("5_r3cr2")]
 position = Vector2(202, 34)
@@ -525,3 +526,41 @@ position = Vector2(0, -27)
 
 [node name="Slime" parent="." instance=ExtResource("7_txlmu")]
 position = Vector2(466, 48)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Space" type="Label" parent="Node"]
+offset_left = -154.0
+offset_top = 48.0
+offset_right = -42.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_mub35")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Falling" type="Label" parent="Node"]
+offset_left = 317.0
+offset_top = 46.0
+offset_right = 429.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_mub35")
+theme_override_font_sizes/font_size = 8
+text = "Falling hurts..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Almost" type="Label" parent="Node"]
+offset_left = 622.0
+offset_top = -80.0
+offset_right = 734.0
+offset_bottom = -64.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_mub35")
+theme_override_font_sizes/font_size = 8
+text = "Almost there..."
+horizontal_alignment = 1
+vertical_alignment = 1
