@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj4uljhbpiapg"]
+[gd_scene load_steps=14 format=3 uid="uid://cj4uljhbpiapg"]
 
 [ext_resource type="PackedScene" uid="uid://56pmtefbka8" path="res://scenes/player.tscn" id="1_5huw3"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_x02dh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmronf5556s6o" path="res://scenes/platform.tscn" id="4_8vr3r"]
 [ext_resource type="PackedScene" uid="uid://casg7564rkshg" path="res://scenes/coin.tscn" id="5_r3cr2"]
 [ext_resource type="PackedScene" uid="uid://dluoaexpxr2gi" path="res://scenes/killzone.tscn" id="6_grx5l"]
+[ext_resource type="PackedScene" uid="uid://cdwccml7vr0ri" path="res://scenes/slime.tscn" id="7_txlmu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_duy8d"]
 texture = ExtResource("3_dim12")
@@ -409,6 +410,8 @@ texture = ExtResource("3_dim12")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_duy8d")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1un4d"]
+
 [sub_resource type="Animation" id="Animation_c75pg"]
 length = 0.001
 tracks/0/type = "value"
@@ -447,8 +450,6 @@ _data = {
 "move": SubResource("Animation_g7ycy")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1un4d"]
-
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -471,18 +472,6 @@ zoom = Vector2(4, 4)
 limit_bottom = 90
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="Platform" parent="." instance=ExtResource("4_8vr3r")]
-position = Vector2(0, -27)
-
-[node name="Platform2" parent="." instance=ExtResource("4_8vr3r")]
-position = Vector2(338, 20)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
-libraries = {
-"": SubResource("AnimationLibrary_ipp3h")
-}
-autoplay = "move"
 
 [node name="Killzone" parent="." instance=ExtResource("6_grx5l")]
 position = Vector2(-1, -1)
@@ -521,3 +510,18 @@ position = Vector2(521, -141)
 position = Vector2(202, 34)
 
 [node name="Platforms" type="Node" parent="."]
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("4_8vr3r")]
+position = Vector2(338, 20)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_ipp3h")
+}
+autoplay = "move"
+
+[node name="Platform" parent="Platforms" instance=ExtResource("4_8vr3r")]
+position = Vector2(0, -27)
+
+[node name="Slime" parent="." instance=ExtResource("7_txlmu")]
+position = Vector2(466, 48)
